@@ -62,6 +62,8 @@ class ProfileTab extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Row(
+                  // profileStats 是 mock 统计数组。
+                  // 每个统计项用 Expanded 平分一行宽度，保证三个数字对齐展示。
                   children: profileStats
                       .map(
                         (stat) => Expanded(child: ProfileStatItem(stat: stat)),

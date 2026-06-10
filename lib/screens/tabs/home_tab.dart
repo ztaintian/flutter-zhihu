@@ -14,6 +14,8 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
+  // 当前选中的热门话题下标，只影响话题 Chip 的选中样式。
+  // 现在还没有按话题过滤帖子，后续可以用这个值筛选 forumPosts。
   int _selectedTopicIndex = 0;
 
   @override
@@ -32,6 +34,8 @@ class _HomeTabState extends State<HomeTab> {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
+              // featuredTopics 来自 forum_seed_data.dart。
+              // 这里根据 index 逐个取出话题文本，生成横向滚动的 TopicChip。
               return TopicChip(
                 label: featuredTopics[index],
                 selected: _selectedTopicIndex == index,
@@ -43,6 +47,7 @@ class _HomeTabState extends State<HomeTab> {
               );
             },
             separatorBuilder: (_, __) => const SizedBox(width: 8),
+            // 用 mock 话题数组长度决定要渲染多少个 Chip。
             itemCount: featuredTopics.length,
           ),
         ),
@@ -50,6 +55,8 @@ class _HomeTabState extends State<HomeTab> {
         // 推荐讨论列表目前使用本地 mock 数据，后续可替换为接口返回。
         const SectionHeader(title: '推荐讨论', actionText: '换一批'),
         const SizedBox(height: 10),
+        // forumPosts 是本地 mock 帖子数组。
+        // map 会把每条 ForumPost 数据转换成一个 ForumPostCard 卡片。
         ...forumPosts.map(
           (post) => Padding(
             padding: const EdgeInsets.only(bottom: 12),

@@ -7,12 +7,18 @@ class ForumBottomNav extends StatelessWidget {
     required this.onTap,
   });
 
+  // 外层页面传入当前选中的下标，用来控制哪个底部按钮高亮。
   final int currentIndex;
+
+  // 外层页面传入点击回调。
+  // 用户点击“首页/发现/收藏/我的”时，NavigationBar 会把对应下标传给它。
   final ValueChanged<int> onTap;
 
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
+      // selectedIndex 只负责导航栏本身的选中样式。
+      // 真正显示哪个页面，由外层 ForumHomeScreen 的 IndexedStack 决定。
       selectedIndex: currentIndex,
       onDestinationSelected: onTap,
       destinations: const [
