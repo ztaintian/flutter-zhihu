@@ -13,8 +13,10 @@ class DiscoverTab extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
       children: [
+        // 发现页承载探索内容，不和首页推荐流混在一起。
         const SectionHeader(title: '发现', actionText: '刷新'),
         const SizedBox(height: 10),
+        // 轻量话题入口，适合后续接热门话题或频道筛选。
         Wrap(
           spacing: 8,
           runSpacing: 8,
@@ -27,6 +29,7 @@ class DiscoverTab extends StatelessWidget {
           }).toList(),
         ),
         const SizedBox(height: 18),
+        // 热榜、圆桌、专栏等模块共用 DiscoveryCard 模板。
         ...discoverySections.map(
           (section) => Padding(
             padding: const EdgeInsets.only(bottom: 12),

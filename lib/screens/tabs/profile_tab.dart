@@ -13,6 +13,7 @@ class ProfileTab extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
       children: [
+        // 个人资料卡片展示用户身份和核心数据。
         Card(
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -72,6 +73,7 @@ class ProfileTab extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 18),
+        // 我的工具入口后续可以扩展为二级页面。
         const SectionHeader(title: '我的工具', actionText: '设置'),
         const SizedBox(height: 10),
         const ProfileMenuTile(

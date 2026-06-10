@@ -21,8 +21,10 @@ class _HomeTabState extends State<HomeTab> {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
       children: [
+        // 首页顶部搜索入口，后续可以接搜索页面或关键词联想。
         const AppSearchBar(),
         const SizedBox(height: 16),
+        // 横向话题栏用于快速筛选信息流主题。
         const SectionHeader(title: '热门话题', actionText: '全部'),
         const SizedBox(height: 10),
         SizedBox(
@@ -45,6 +47,7 @@ class _HomeTabState extends State<HomeTab> {
           ),
         ),
         const SizedBox(height: 18),
+        // 推荐讨论列表目前使用本地 mock 数据，后续可替换为接口返回。
         const SectionHeader(title: '推荐讨论', actionText: '换一批'),
         const SizedBox(height: 10),
         ...forumPosts.map(

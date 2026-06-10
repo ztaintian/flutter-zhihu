@@ -13,6 +13,7 @@ class SavedTab extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
       children: [
+        // 收藏夹区域用于管理用户按主题整理的内容。
         const SectionHeader(title: '收藏', actionText: '管理'),
         const SizedBox(height: 10),
         ...savedCollections.map(
@@ -22,6 +23,7 @@ class SavedTab extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
+        // 最近收藏复用回答卡片，保证信息流样式一致。
         const SectionHeader(title: '最近收藏', actionText: '更多'),
         const SizedBox(height: 10),
         ForumPostCard(post: forumPosts[1]),

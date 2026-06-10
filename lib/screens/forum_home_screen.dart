@@ -16,7 +16,10 @@ class ForumHomeScreen extends StatefulWidget {
 class _ForumHomeScreenState extends State<ForumHomeScreen> {
   int _selectedNavIndex = 0;
 
+  // 底部导航切换时同步更新顶部标题。
   static const _titles = ['知问', '发现', '收藏', '我的'];
+
+  // 使用 IndexedStack 保留每个 Tab 的滚动位置和局部状态。
   static const _tabs = [HomeTab(), DiscoverTab(), SavedTab(), ProfileTab()];
 
   @override
@@ -45,6 +48,7 @@ class _ForumHomeScreenState extends State<ForumHomeScreen> {
       body: SafeArea(
         child: IndexedStack(index: _selectedNavIndex, children: _tabs),
       ),
+      // 首页保留提问入口，其他页面暂时聚焦浏览和管理内容。
       floatingActionButton: _selectedNavIndex == 0
           ? FloatingActionButton.extended(
               onPressed: () {},
